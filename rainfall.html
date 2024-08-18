@@ -1,0 +1,107 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            background: #0d343a;
+            background: -webkit-gradient(linear ,0% 0% 0% 100%, from(rgba(13,52,58,1)) to(#000000));
+            background: -moz-linear-gradient(top,rgba(13,52,58,1)0%, rgba(0,0,0,1) 100%);
+            overflow: hidden;
+        }
+        .drop{
+            background: -webkit-gradient(linear ,0% 0% 0% 100%, from(rgba(13,52,58,1)) to(rgba(255,255,255,0.6)));
+            background: -moz-linear-gradient(top,rgba(13,52,58,1)0%, rgba(255,255,255,0.6) 100%);
+            width: 1px;
+            height: 89px;
+            position: absolute;
+            bottom: 200px;
+            animation: fall 0.63s linear-infinite;
+        }
+        @keyframes fall{
+            to{transform:  translateY(900px);}
+
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="javascript">
+        var nbDrop=858;
+
+        function randRange(minNum,maxNum){
+            return(Math.floor(Math.random()*( minNum- maxNum+1))+minNum);
+
+        }
+        function createRain(){
+            for( var i=1; i<nbDrop; i++){
+                var dropleft =randRange(0,1600);
+                var droptop= randRange(-1000,1400);
+
+                $('.rain').append(<div class="drop" id="drop' +i+ '"></div>'' );
+                $(#drop '+i).css('left',dropleft);
+                $(#drop'+i).css('top',droptop);
+
+            }
+        }
+
+    </script>
+</head>
+<body onload="createRain();">
+    <section class="rain">
+
+    </section>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            background: linear-gradient(to bottom, rgba(13,52,58,1), #000000);
+            overflow: hidden;
+        }
+        .drop {
+            background: linear-gradient(to bottom, rgba(13,52,58,1), rgba(255,255,255,0.6));
+            width: 1px;
+            height: 89px;
+            position: absolute;
+            bottom: 200px;
+            animation: fall 0.63s linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(900px);
+            }
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        var nbDrop = 858;
+
+        function randRange(minNum, maxNum) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+        }
+
+        function createRain() {
+            for (var i = 1; i <= nbDrop; i++) {
+                var dropleft = randRange(0, 1600);
+                var droptop = randRange(-1000, 1400);
+
+                $('.rain').append('<div class="drop" id="drop' + i + '"></div>');
+                $('#drop' + i).css('left', dropleft + 'px');
+                $('#drop' + i).css('top', droptop + 'px');
+            }
+        }
+    </script>
+</head>
+<body onload="createRain();">
+    <section class="rain"></section>
+</body>
+</html>
