@@ -1,0 +1,66 @@
+<!--    digital clock programme  -->
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Document</title>
+    <style>
+        body{
+            background:url(tree.jpg); 
+        }
+        .clack{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: white;
+            font-size: 90px ;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.725);
+            border-radius: 5px;
+            text-shadow: 0 0 20px rgb(140, 201, 88);
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="clock" class="clack"></div>
+    <script type="text/javascript" >
+        function timeguy(){
+            var date =new Date;
+            var h= date.getHours();
+            var m= date.getMinutes();
+            var s= date.getSeconds();
+            var session= "AM";
+
+
+            if(h== 0){
+                h=12;
+            }
+            if(h>12){
+                h=h-12;
+                session="PM";
+
+            }
+            if(h<10){
+                h="0"+h;
+            }
+            if(m<10){
+                m="0"+m;
+            }
+            if(s<10){
+                s="0"+s;
+            }
+            var time= h +":" +m +":" +s +" " +session ;
+            document.getElementById("clock").innerText = time;
+            document.getElementById("clock").textContent = time;
+
+            setTimeout(timeguy ,1000)
+        }
+        
+        timeguy();
+    </script>
+</body>
+</html>
